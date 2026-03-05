@@ -59,12 +59,12 @@ if (
     reactorUnitsEl.textContent = String(remaining);
     reactorRing.style.strokeDashoffset = String(dashOffset);
 
-    const hue = Math.round((percent / 100) * 130);
+    const hue = Math.round(8 + (percent / 100) * 37);
     const scale = 0.82 + percent / 1000;
 
-    reactorRing.style.stroke = `hsl(${hue}, 95%, 68%)`;
+    reactorRing.style.stroke = `hsl(${hue}, 88%, 62%)`;
     reactorCore.style.transform = `scale(${scale})`;
-    reactorCore.style.boxShadow = `0 0 ${12 + percent / 5}px hsla(${hue}, 95%, 68%, 0.9)`;
+    reactorCore.style.boxShadow = `0 0 ${10 + percent / 6}px rgba(95, 208, 255, 0.82)`;
   }
 
   function renderCards() {
