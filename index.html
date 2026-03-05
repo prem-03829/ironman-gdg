@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Energy Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="console-page">
+    <section id="interactive" class="interactive">
+      <div class="section-head">
+        <p class="eyebrow">Interactive Energy Console</p>
+        <h1>Allocate power across mission-critical subsystems</h1>
+      </div>
+
+      <div class="reactor-panel glass-panel">
+        <div class="arc-reactor" aria-hidden="true">
+          <svg viewBox="0 0 220 220" class="reactor-svg">
+            <circle class="reactor-track" cx="110" cy="110" r="90"></circle>
+            <circle id="reactorRing" class="reactor-progress" cx="110" cy="110" r="90"></circle>
+          </svg>
+          <div id="reactorCore" class="reactor-core"></div>
+          <div class="reactor-rings"></div>
+        </div>
+        <div class="reactor-copy">
+          <p>Arc Reactor Output</p>
+          <h2><span id="reactorPercent">100</span>%</h2>
+          <p><span id="reactorUnits">100</span> units remaining</p>
+        </div>
+      </div>
+
+      <div class="energy-summary glass-panel">
+        <article>
+          <p>Total Capacity</p>
+          <h3><span id="totalEnergy">100</span> units</h3>
+        </article>
+        <article>
+          <p>Allocated</p>
+          <h3><span id="usedEnergy">0</span> units</h3>
+        </article>
+        <article>
+          <p>Remaining</p>
+          <h3><span id="remainingEnergy">100</span> units</h3>
+        </article>
+      </div>
+
+      <p id="allocationFeedback" class="allocation-feedback" aria-live="polite"></p>
+
+      <div class="systems-grid">
+        <article class="system-card glass-panel" data-system="Propulsion">
+          <div class="system-head">
+            <h3><i class="fa-solid fa-rocket"></i> Propulsion</h3>
+            <span class="efficiency-value">0%</span>
+          </div>
+          <div class="control-row">
+            <button class="power-btn minus" type="button" aria-label="Decrease Propulsion">-</button>
+            <input class="power-input" type="number" min="0" max="100" step="1" value="0" inputmode="numeric" aria-label="Propulsion power">
+            <button class="power-btn plus" type="button" aria-label="Increase Propulsion">+</button>
+          </div>
+          <input class="power-slider" type="range" min="0" max="100" step="1" value="0" aria-label="Propulsion slider">
+          <div class="meter"><div class="meter-fill"></div></div>
+          <p class="system-meta">Efficiency scales directly with allocated power.</p>
+        </article>
+
+        <article class="system-card glass-panel" data-system="Defense">
+          <div class="system-head">
+            <h3><i class="fa-solid fa-shield-halved"></i> Defense</h3>
+            <span class="efficiency-value">0%</span>
+          </div>
+          <div class="control-row">
+            <button class="power-btn minus" type="button" aria-label="Decrease Defense">-</button>
+            <input class="power-input" type="number" min="0" max="100" step="1" value="0" inputmode="numeric" aria-label="Defense power">
+            <button class="power-btn plus" type="button" aria-label="Increase Defense">+</button>
+          </div>
+          <input class="power-slider" type="range" min="0" max="100" step="1" value="0" aria-label="Defense slider">
+          <div class="meter"><div class="meter-fill"></div></div>
+          <p class="system-meta">Higher allocation improves shield response.</p>
+        </article>
+
+        <article class="system-card glass-panel" data-system="Navigation">
+          <div class="system-head">
+            <h3><i class="fa-solid fa-compass"></i> Navigation</h3>
+            <span class="efficiency-value">0%</span>
+          </div>
+          <div class="control-row">
+            <button class="power-btn minus" type="button" aria-label="Decrease Navigation">-</button>
+            <input class="power-input" type="number" min="0" max="100" step="1" value="0" inputmode="numeric" aria-label="Navigation power">
+            <button class="power-btn plus" type="button" aria-label="Increase Navigation">+</button>
+          </div>
+          <input class="power-slider" type="range" min="0" max="100" step="1" value="0" aria-label="Navigation slider">
+          <div class="meter"><div class="meter-fill"></div></div>
+          <p class="system-meta">Precision targeting improves as power increases.</p>
+        </article>
+
+        <article class="system-card glass-panel" data-system="Communication">
+          <div class="system-head">
+            <h3><i class="fa-solid fa-satellite-dish"></i> Communication</h3>
+            <span class="efficiency-value">0%</span>
+          </div>
+          <div class="control-row">
+            <button class="power-btn minus" type="button" aria-label="Decrease Communication">-</button>
+            <input class="power-input" type="number" min="0" max="100" step="1" value="0" inputmode="numeric" aria-label="Communication power">
+            <button class="power-btn plus" type="button" aria-label="Increase Communication">+</button>
+          </div>
+          <input class="power-slider" type="range" min="0" max="100" step="1" value="0" aria-label="Communication slider">
+          <div class="meter"><div class="meter-fill"></div></div>
+          <p class="system-meta">Signal strength and range scale with power.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+ 
